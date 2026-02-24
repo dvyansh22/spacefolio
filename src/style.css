@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at center,
+    #000814 0%,
+    #000000 60%
+  );
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.device-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 2000px;
+}
+
+/* DEVICE BODY */
+.device {
+  width: 80%;
+  max-width: 1100px;
+  height: 70%;
+  border-radius: 40px;
+  padding: 30px;
+  position: relative;
+
+  background: rgba(20, 20, 25, 0.45);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 0 60px rgba(0,255,255,0.15),
+    inset 0 0 30px rgba(255,255,255,0.04);
+
+  transition: transform 0.2s ease, opacity 0.6s ease;
+}
+
+/* SCREWS */
+.screw {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #777, #222);
+  position: absolute;
+}
+.tl { top: 15px; left: 15px; }
+.tr { top: 15px; right: 15px; }
+.bl { bottom: 15px; left: 15px; }
+.br { bottom: 15px; right: 15px; }
+
+/* SIDE BUTTONS */
+.side-buttons {
+  position: absolute;
+  top: 40%;
+  width: 8px;
+  height: 80px;
+  background: #111;
+}
+.left { left: -12px; border-radius: 5px 0 0 5px; }
+.right { right: -12px; border-radius: 0 5px 5px 0; }
+
+/* LED STRIP */
+.led-strip {
+  position: absolute;
+  top: 12px;
+  left: 30%;
+  width: 40%;
+  height: 4px;
+  background: var(--hud-color);
+  box-shadow: 0 0 20px var(--hud-color);
+  animation: breathe 2s infinite alternate;
+}
+
+/* SCREEN */
+.device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+
+  background: rgba(0, 10, 20, 0.15);
+  backdrop-filter: blur(18px) saturate(130%);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+    inset 0 0 40px var(--hud-color),
+    0 0 30px var(--hud-color);
+
+  color: var(--hud-color);
+}
+
+/* GLASS EFFECT */
+.glass-layer {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12), transparent 60%),
+    linear-gradient(120deg, rgba(255,255,255,0.08), transparent 60%);
+  pointer-events: none;
+}
+
+/* CURVATURE */
+.curvature {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 65%, rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+
+/* GRID */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+}
+
+/* ========================= */
+/* UPDATED CONTENT STYLING */
+/* ========================= */
+
+.hud-content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3rem 5rem;   /* 🔥 Increased left-right padding */
+  text-align: center;
+}
+
+.hud-content h1 {
+  font-size: 55px;
+  letter-spacing: 6px;
+  margin-bottom: 25px;
+
+  text-shadow:
+    0 0 10px var(--hud-color),
+    0 0 20px var(--hud-color);
+}
+
+.hud-content p {
+  font-size: 20px;
+  line-height: 1.8;     /* 🔥 Better readability */
+  max-width: 850px;     /* 🔥 Prevents text from stretching too wide */
+  opacity: 0.9;
+}
+
+/* Link Styling */
+.hud-content a {
+  color: var(--hud-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hud-color);
+  transition: 0.3s ease;
+}
+
+.hud-content a:hover {
+  text-shadow: 0 0 10px var(--hud-color);
+}
+
+/* BOOT UP */
+.boot-sequence {
+  position: absolute;
+  inset: 0;
+  background: var(--hud-color);
+  animation: bootUp 0.8s ease forwards;
+}
+
+@keyframes bootUp {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* BOOT DOWN */
+.shutdown-sequence {
+  position: absolute;
+  inset: 0;
+  background: var(--hud-color);
+  animation: bootDown 0.6s ease forwards;
+}
+
+@keyframes bootDown {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.shutdown {
+  animation: collapse 0.6s ease forwards;
+}
+
+@keyframes collapse {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes breathe {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}

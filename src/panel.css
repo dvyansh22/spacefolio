@@ -1,0 +1,30 @@
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background: rgba(10, 10, 20, 0.95);
+  color: white;
+  padding: 40px;
+  box-shadow: -5px 0 30px rgba(0,0,0,0.8);
+  animation: slideIn 0.6s ease forwards;
+}
+
+.panel h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.panel button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: cyan;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
