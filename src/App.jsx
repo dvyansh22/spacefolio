@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import Scene from "./Scene"
 import Overlay from "./Overlay"
+import Loader from "./Loader"
 import "./style.css"
 
 function App() {
@@ -15,7 +16,11 @@ function App() {
         style={{ background: "transparent" }}
       >
         <color attach="background" args={["#000000"]} />
-        <Scene setActiveSection={setActiveSection} />
+
+        <Suspense fallback={<Loader />}>
+          <Scene setActiveSection={setActiveSection} />
+        </Suspense>
+
       </Canvas>
 
       <Overlay activeSection={activeSection} />
