@@ -50,18 +50,19 @@ const sections = [
     `
   },
 
-  { 
-    name: "Achievements & Contact", 
-    content: `
+{ 
+  name: "Achievements & Contact", 
+  content: `
 <span class="bullet">▸</span> Yantra Central Hack Winner 2025 — AI/ML Developer<br/>
 <span class="bullet">▸</span> Yantra Central Hack Winner 2026 — Team Lead (Cybersecurity + Blockchain)<br/>
 <span class="bullet">▸</span> Certified in Flutter Development and Applied AI/ML Engineering<br/>
 <span class="bullet">▸</span> Active contributor to secure, scalable backend and edge computing systems<br/>
+<span class="bullet">▸</span> View Resume: <a href='/resume.pdf' target='_blank'>Click Here</a><br/>
 <span class="bullet">▸</span> GitHub: <a href='https://github.com/dvyansh22' target='_blank'>github.com/dvyansh22</a><br/>
 <span class="bullet">▸</span> LinkedIn: <a href='https://www.linkedin.com/in/divyanshkrishna' target='_blank'>linkedin.com/in/divyanshkrishna</a><br/>
 <span class="bullet">▸</span> Email: <a href='mailto:divyanshkrishna3@gmail.com'>divyanshkrishna3@gmail.com</a>
-    `
-  }
+  `
+}
 ]
 
 const colors = [
